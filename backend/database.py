@@ -9,12 +9,12 @@ class DatabaseManager:
     def __init__(self, **config):
         self.conn = mysql.connector.connect(**(config or MYSQL_CONFIG))
         self.cursor = self.conn.cursor()
-        print(f"Connected to MySQL: {self.conn.database}")
+        print(f"Conectado ao MySQL: {self.conn.database}")
 
     def close(self):
         self.cursor.close()
         self.conn.close()
-        print("Connection closed")
+        print("Conexao fechada")
 
     def execute(self, query, params=None):
         self.cursor.execute(query, params or ())
