@@ -9,8 +9,7 @@ class ConsultaDAO(BaseDAO):
         return self._search(
             "SELECT * FROM consulta WHERE data_consulta = %s ORDER BY horario",
             (date,))
-
-    # SELECT with JOIN across four tables (consulta + animal + dono + veterinario).
+    
     def list_detailed(self):
         return self.db.fetch_all(
             "SELECT c.id_consulta, a.nome, a.especie, d.nome, v.nome, "

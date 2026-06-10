@@ -3,15 +3,12 @@ from models.prontuario import Prontuario
 
 
 class ProntuarioDAO(BaseDAO):
-    # Note: inserting an animal auto-creates its record via the SQL trigger,
-    # so listing/updating are the most common operations here.
     table, pk, model = "prontuario", "id_prontuario", Prontuario
 
     def find_by_animal(self, id_animal):
         return self._search(
             "SELECT * FROM prontuario WHERE id_animal = %s", (id_animal,))
 
-    # SELECT with JOIN: each record with its animal's name.
     def list_with_animal(self):
         return self.db.fetch_all(
             "SELECT p.id_prontuario, an.nome, p.alergias, p.vacinas_em_dia, "

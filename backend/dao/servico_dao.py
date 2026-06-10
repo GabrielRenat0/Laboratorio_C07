@@ -10,7 +10,6 @@ class ServicoDAO(BaseDAO):
             "SELECT * FROM servico WHERE LOWER(nome) LIKE LOWER(%s) ORDER BY nome",
             (f"%{name}%",))
 
-    # SELECT with JOIN: each service with the veterinarian in charge.
     def list_with_vet(self):
         return self.db.fetch_all(
             "SELECT s.id_servico, s.nome, s.preco, v.nome, v.especialidade "

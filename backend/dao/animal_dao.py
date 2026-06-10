@@ -10,7 +10,6 @@ class AnimalDAO(BaseDAO):
             "SELECT * FROM animal WHERE LOWER(especie) LIKE LOWER(%s) ORDER BY nome",
             (f"%{species}%",))
 
-    # SELECT with JOIN: each animal with its owner's name and phone.
     def list_with_owner(self):
         return self.db.fetch_all(
             "SELECT a.id_animal, a.nome, a.especie, d.nome, d.telefone "
