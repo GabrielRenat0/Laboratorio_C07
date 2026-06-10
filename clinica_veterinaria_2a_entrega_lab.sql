@@ -220,3 +220,12 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+-- SELECTs para acompanhar as tabelas durante a apresentacao.
+
+SELECT * FROM dono;
+SELECT * FROM veterinario;
+SELECT * FROM animal;
+SELECT * FROM prontuario;
+SELECT * FROM servico;
+SELECT * FROM consulta;
